@@ -66,7 +66,7 @@ class MessagesController < ApplicationController
     
     respond_to do |format|
       format.html {
-        @total_count = Message.count_all_around(@id, @nb)
+        # @total_count = Message.count_all_around(@id, @nb)
       }
       format.text { 
         send_data @messages.map(&:message).join("\n"), :type => "text/plain", :filename => "#{@id.to_s}-#{@nb}.log"
