@@ -4,7 +4,7 @@ begin
   if db_config[Rails.env]
     config = db_config[Rails.env]
     if config['hostname'].is_a? Array
-      MongoMapper.connection = Mongo::Connection.multi(config['hostname'], { :logger => Rails.logger })
+      MongoMapper.connection = Mongo::Connection.multi(config['hostname'], { :logger => Rails.logger, :slave_ok => true })
     else
       MongoMapper.connection = Mongo::Connection.new(config['hostname'], config['port'], { :logger => Rails.logger, :slave_ok => true })
     end
