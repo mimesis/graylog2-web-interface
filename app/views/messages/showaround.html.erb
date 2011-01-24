@@ -7,12 +7,16 @@ A total of <span class="highlighted"><%= @total_count %></span> messages in this
 
 
 
+<%=  awesome_link "Download as a log file", showaround_messages_path(:message_id => @id, :nb => @nb, :format => "txt"), :style => "float: right"  %>
+
+
 <%= form_tag showaround_messages_path, :method => "get" do %>
   <%= hidden_field_tag :message_id, @id %>
   Show 
   <%= text_field_tag :nb, params[:nb], :size => 3 %>
   <%= submit_tag "messages around" %>
 <% end %>
+
 
 
 

@@ -64,6 +64,13 @@ class MessagesController < ApplicationController
     end
     @messages = Message.all_around(@id, @nb)
     @total_count = Message.count_all_around(@id, @nb)
+    
+    respond_to do |format|
+      format.html 
+      format.text { 
+        send_data @messages.map(&:message).join("\n"), :type => "text/plain", :filename => "#{@id.to_s}-#{@nb}.log"  
+      }
+    end
   end
 
   def getcompletemessage
