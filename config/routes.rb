@@ -14,6 +14,8 @@ Graylog2WebInterface::Application.routes.draw do
     collection do
       post :showrange
       get :showrange
+      post :showaround
+      get :showaround
     end
   end
 
