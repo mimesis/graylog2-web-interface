@@ -84,4 +84,6 @@ Graylog2WebInterface::Application.routes.draw do
   
   match '/' => 'messages#index', :as => "root"
   match '/:controller(/:action(/:id))'
+  
+  match '/app', :to => "application#app"
 end

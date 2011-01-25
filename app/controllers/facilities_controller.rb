@@ -1,7 +1,10 @@
 class FacilitiesController < ApplicationController
+  respond_to :html, :json
+  
   def index
     @facilities = Facility.get_all
     @new_facility = Facility.new
+    respond_with @facilities.map { |fid, fn| { :id => fid, :title => fn } }
   end
 
   def create

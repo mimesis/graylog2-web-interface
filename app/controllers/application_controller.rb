@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   before_filter :login_required
-
+  
+  def app
+    render :layout => "app", :text => 'Loading...'
+  end
+  
   def rescue_action e
     # Connection to MongoDB failed.
     if e.class == Mongo::ConnectionFailure

@@ -1,0 +1,30 @@
+template_function: _.template
+template_extension: jst
+embed_assets: datauri
+
+javascripts:
+  libs:
+    - public/javascripts/jquery-1.4.2.min.js
+    - public/javascripts/lib/underscore.js  
+    - public/javascripts/lib/backbone.js
+
+  templates:
+    - app/client/templates/**/*.jst
+    
+  app:
+    - public/client/lib/**/*.js
+    - public/client/models/**/*.js
+    - public/client/collections/**/*.js
+    - public/client/helpers/**/*.js
+    - public/client/controllers/**/*.js
+    - public/client/views/**/*.js
+    - public/client/app.js
+    
+stylesheets:
+  common: 
+    - public/stylesheets/reset.css
+    - public/stylesheets/core.css
+  app: 
+    - public/stylesheets/sections.css
+    - public/stylesheets/messages.css    
+    - public/stylesheets/app.css    

@@ -16,7 +16,8 @@ begin
         :mongo_database => mongodb_config["database"],
         :mongo_use_auth => mongodb_config["authenticate"],
         :mongo_user => mongodb_config["username"],
-        :mongo_password => mongodb_config["password"]
+        :mongo_password => mongodb_config["password"],
+        :port => livetail_config["port"] || 12500
       }
 
       # Check if livetail secret is set.

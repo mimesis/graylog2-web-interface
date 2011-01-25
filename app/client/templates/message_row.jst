@@ -1,0 +1,17 @@
+<td><%= date() %></td>
+<td>
+  <span data-filter="host" data-value="<%= get("host") %>" class="filter">
+    <%= get('host') || "-" %>
+  </span>
+</td>
+<td>
+  <span data-filter="level" data-value="<%= get("level") %>" class="filter">
+    <%= severity() %>
+  </span>
+</td>
+<td>
+  <span data-filter="facility" data-value="<%= get("facility") %>" class="filter">
+    <%= facility('title') %>
+  </span>
+</td>
+<td><%= get('message').substr(0, 100) %></td>

@@ -14,7 +14,12 @@ gem 'rack', '1.2.1'
 gem 'chronic', '0.3.0'
 gem 'pony'
 gem 'declarative_authorization'
-gem 'em-websocket', '0.1.4'
+gem "juggernaut", "2.0.0"
+
+# JS & Coffee
+gem "jammit", "0.5.4"
+gem 'therubyracer', "0.8.0", :require => false
+gem 'barista', '1.0.0'
 
 group :development, :test do
   gem 'machinist_mongo'

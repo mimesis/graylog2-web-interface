@@ -70,6 +70,8 @@ class Message
 
     conditions = self
 
+    
+
     unless filters.blank?
       # Message (seems like there is a bug in the Plucky condition overwriting. Setting blacklisted terms here.)
       conditions = conditions.where(:message => { "$nin" => BlacklistedTerm.all_as_array, "$in" => [/#{filters[:message].strip}/] }) unless filters[:message].blank?

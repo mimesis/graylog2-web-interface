@@ -1,0 +1,1 @@
+class Facility extends Backbone.Model

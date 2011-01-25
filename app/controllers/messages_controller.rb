@@ -2,6 +2,8 @@ class MessagesController < ApplicationController
   before_filter :set_scoping
   filter_resource_access
   
+  respond_to :json, :html, :text
+  
   def set_scoping
     if params[:host_id]
       @scope = Message.where(:host => Base64.decode64(params[:host_id]))
@@ -15,15 +17,15 @@ class MessagesController < ApplicationController
   def index
     @has_sidebar = true
     @load_flot = true
-  
     if params[:filters].blank?
       @messages = @scope.all_with_blacklist params[:page]
-    else
+    else      
       @additional_filters = Message.extract_additional_from_quickfilter(params[:filters])
       @messages = @scope.all_by_quickfilter params[:filters], params[:page]
     end
     @total_count = Message.count_since(0)
     @total_blacklisted_terms = BlacklistedTerm.count
+    respond_with @messages
   end
 
   def show
